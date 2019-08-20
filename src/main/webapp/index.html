@@ -1,10 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Start Page</title>
+        <title>Formulario</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Ejemplo</h1>
+        
+        <form action="FrmServlet" method="POST">
+            <table>
+            <tr>
+                <td>IdPelicula</td>
+                    
+                <td><input type="number" name="idPelicula"></td>
+                
+            </tr>   
+
+            <tr>
+                <td>Titulo Pelicula:</td>
+                <td><input type="text" id="titulo" name="Titulo"/></td>
+            </tr>
+                
+            <tr>
+                <td>Duracion:</td>
+                <td><input type="text" id="duracion" name="Duracion"/></td>
+            </tr> 
+            
+            <tr>
+                <td>Director:</td>
+                <td><input type="text" id="director" name="Director"/></td>
+            </tr>
+            
+            <tr>
+                <td>Genero:</td>
+                <td><input type="text" id="genero" name="Genero"/></td>
+            </tr>
+            
+            <tr>
+                <td>Fecha de estreno:</td>
+                <td><input id="fechaEstreno" type="date" name="FechaEstreno"></td>
+            </tr>
+            
+            <tr>
+                <td>Clasificacion:</td>
+                <td><input type="text" id="clasificacion" name="Clasificacion"/></td>
+            </tr>
+            
+            <tr>
+                <td>Sinopsis:</td>
+                <td><input type="text" id="sinopsis" name="Sinopsis"/></td>
+            </tr>
+            
+            </table>
+            <input type="submit" name="btnAceptar" value="Aceptar">
+            <input type="button" name="btnModificar" value="Modificar">
+
+        </form>
     </body>
 </html>
