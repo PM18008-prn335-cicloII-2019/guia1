@@ -6,7 +6,6 @@
 package occ.ues.edu.sv.ingenieria.prn335.controller;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import occ.ues.edu.sv.ingenieria.prn335.entity.Pelicula;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -43,42 +42,23 @@ public class CineTest {
     /**
      * Test of getListaPeliculas method, of class Cine.
      */
-    /*@Test
-    public void testGetListaPeliculas() {
-        System.out.println("getListaPeliculas");
-        Cine instance = new Cine();
-        ArrayList<Pelicula> expResult = null;
-        ArrayList<Pelicula> result = instance.getListaPeliculas();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
-*/
+
+
     /**
      * Test of agregarPelicula method, of class Cine.
      */
     @Test
     public void testAgregarPelicula() {
         System.out.println("agregarPelicula");
-        int idPelicula = 6;
-        String titulo = "PruebaTitulo";
-        String duracion = "PruebaDuracion";
-        String director = "PruebaDirector";
-        String genero = "PruebaGenero";
-        LocalDate fechaEstreno = LocalDate.of(2018, 10, 30);;
-        char clasificacion = 'E';
-        String sinopsis = "PruebaSinopsis";
-        Cine instance = new Cine();
+        Cine cineTest=new Cine();
         Pelicula expResult = null;
-        Pelicula result = instance.agregarPelicula(idPelicula, titulo, duracion, director, genero, fechaEstreno, clasificacion, sinopsis);
+        Pelicula result = cineTest.agregarPelicula(6, "Eternals", "90min", "Marvel", "Accion", LocalDate.of(2020, 6, 1), 'E', "Ironman 26");
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        if(result !=expResult){
-            fail("The test case is a prototype.");
-        }else{
-            
-        }
         
     }
+
+ 
+
+
     
 }

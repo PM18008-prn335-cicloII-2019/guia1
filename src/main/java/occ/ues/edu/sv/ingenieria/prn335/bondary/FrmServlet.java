@@ -35,6 +35,7 @@ public class FrmServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+            
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
@@ -45,7 +46,9 @@ public class FrmServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet FrmServlet at " + request.getContextPath() + "</h1>");
             
-            int idpelicula=Integer.parseInt(request.getParameter("idPelicula"));
+            
+                    
+         int idpelicula=Integer.parseInt(request.getParameter("idPelicula"));
             String titulo=request.getParameter("Titulo");
             String duracion=request.getParameter("Duracion");
             String director=request.getParameter("Director");
@@ -54,12 +57,22 @@ public class FrmServlet extends HttpServlet {
             char clasificacion=request.getParameter("Clasificacion").charAt(0);
             String sinopsis=request.getParameter("Sinopsis");
             
-            out.println(idpelicula+titulo+duracion+director+genero+fecha+clasificacion+sinopsis);
             
+            if(request.getParameter("btnAceptar").equals("Aceptar")){
+
             
             cine.agregarPelicula(idpelicula, titulo, duracion, director, genero, fecha, clasificacion, sinopsis);
             
             
+ 
+            }else if (request.getParameter("btnAceptar").equals("Modificar")) {
+                cine.modificarPelicula(idpelicula, titulo, duracion, director, genero, fecha, clasificacion, sinopsis);  
+            }
+            
+
+            
+            
+            //tabla
             out.println("<table border='1' >");
             out.println("<tr><th>Id</th><th>Titulo</th><th>Duracion</th><th>Director</th><th>Genero</th>"
                     + "<th>Fecha</th><th>Clasificacion</th><th>Sinopsis</th></tr>");
@@ -76,7 +89,9 @@ public class FrmServlet extends HttpServlet {
             out.println("</table>");
             
             out.println("</body>");
-            out.println("</html>");
+            out.println("</html>"); 
+          
+            
         }
     }
 

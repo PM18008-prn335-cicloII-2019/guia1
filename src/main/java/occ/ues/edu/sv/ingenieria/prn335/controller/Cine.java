@@ -7,7 +7,6 @@ package occ.ues.edu.sv.ingenieria.prn335.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import occ.ues.edu.sv.ingenieria.prn335.entity.Pelicula;
 
 /**
@@ -38,24 +37,22 @@ public class Cine {
     public Pelicula agregarPelicula(int idPelicula, String titulo, String duracion,
     String director, String genero, LocalDate fechaEstreno, char clasificacion, String
     sinopsis​ ){
- 
+        Pelicula pelicula= new Pelicula(idPelicula, titulo, duracion, director, genero, fechaEstreno, clasificacion, sinopsis);
         
         if(LocalDate.now().isBefore(fechaEstreno) && clasificacion !='E'){
             
-            listaPeliculas.add(new Pelicula(idPelicula, titulo, duracion, director, genero, fechaEstreno, clasificacion, sinopsis));
+            listaPeliculas.add(pelicula);
+            return pelicula;
         }else{
-        }
+            return null;
+        }      
         
-        
-        return null;
     }
 
     public void modificarPelicula(int id_pelicula, String titulo, String duracion,
     String director, String genero, LocalDate fechaEstreno, char clasificacion, String
     sinopsis​ ){
-        
-        for(int posicion=0; posicion<listaPeliculas.size(); posicion++){
-           if (LocalDate.now().isBefore(fechaEstreno)) {
+        if (LocalDate.now().isBefore(fechaEstreno)) {
             for (int i = 0; i < listaPeliculas.size(); i++) {
                 if (listaPeliculas.get(i).getIdPelicula() == id_pelicula) {
                     Pelicula UpdatePeli = new Pelicula(id_pelicula, titulo, duracion, director, genero, fechaEstreno, Character.toUpperCase(clasificacion), sinopsis);
@@ -65,18 +62,12 @@ public class Cine {
                 }
             }
         }
-
-    
-        }
         
         
         
     }
 
-    public void agregarPelicula(String idpelicula, String titulo, String duracion, String director, String genero, String fecha, String clasificacion, String sinopsis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+
     
     
 }
